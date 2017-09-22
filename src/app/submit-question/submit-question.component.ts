@@ -14,6 +14,7 @@ export class SubmitQuestionComponent implements OnInit {
   question: string;
   answer: string;
 
+  //Check if the submitted question is correct and increment the score
   submitQuestion() {
     if (this.question === this.questionInfo.answer) {
       this.score += this.questionInfo.value;
@@ -21,6 +22,7 @@ export class SubmitQuestionComponent implements OnInit {
     } else {
       this.flash = "Sorry, that was incorrect.";
     }
+    //Raise an event to the parent 
     this.submitQuestionEvent.emit();  
     //Clear the flash
     setTimeout(()=> this.clearFlash(), 2000)

@@ -1,5 +1,12 @@
+<!-- This is a partial component that will show the question's point value, 
+A place to pose the Question to the answer given, and a button to submit the Question-->
+
 <div class="submit-question">
+    <!-- One way data binding on questionInfo.value to get the point value for the answer -->
     <p><strong>Point Value:</strong> {{ questionInfo?.value }} </p>
+    <!-- Two-way data binding between the input field and the question, [(ngModel)] requires the import of FormsModule
+         from '@angular/forms' -->
     <input type="text" [(ngModel)]="question" >
+    <!-- Binds a click event to the submitQuestion method within the submit-question-component -->
     <button (click)="submitQuestion()">Submit question</button>
 </div>

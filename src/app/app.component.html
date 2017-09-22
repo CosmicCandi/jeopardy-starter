@@ -6,14 +6,25 @@ the question is: {{questionInfo | json}}
 
 <div style="text-align:center">
   <h1>
+    <!-- One way data binding to app.title -->
     Welcome to {{title}}!
   </h1>
+  <!-- Able to use the "false" object (#submitQuestion) created below to pull in the score from the child component via submitQuestion.score -->
   <h3>Current Score: {{submitQuestion.score}}</h3>
+  <!-- Hide the flash if it's not populated, again pulled from the #submitQuestion child object-->
   <h3 *ngIf="submitQuestion.flash">{{submitQuestion.flash}}</h3>
 </div>
 
 <div class="questionDetails">
+  <!-- The question being pulled in from the Jeopardy Service either at app load, or when the submitQuestion button is clicked -->
   <h3>Here's your answer: {{ questionInfo?.question }}</h3>
+  <!-- Category title parsed from the questionInfo object -->
   <p><strong>Category:</strong> {{ questionInfo?.category.title }}</p>
+
+  <!-- app-submit-question allows use of submit-question-component -->
+  <!-- [questionInfo]="questionInfo" binds a property on the child to a property on the parent -->
+  <!-- #submitQuestion creates a "false" Object and use any of the properties created in submit-question-component -->
+  <!-- (submitQuestionEvent)="getDataFromService($event)" is an event handler that will run the event(right hand side) on the parent --> 
   <app-submit-question [questionInfo]="questionInfo" #submitQuestion (submitQuestionEvent)="getDataFromService($event)"></app-submit-question> 
   </div>
+ 
