@@ -5,12 +5,12 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import {JeopardyService } from './jeopardy.service';
-import { ShowAnswerComponent } from './show-answer/show-answer.component';
+import { SubmitQuestionComponent } from './submit-question/submit-question.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShowAnswerComponent
+    SubmitQuestionComponent
   ],
   imports: [
     BrowserModule,

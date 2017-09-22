@@ -1,0 +1,5 @@
+<div class="submit-question">
+    <p><strong>Point Value:</strong> {{ questionInfo?.value }} </p>
+    <input type="text" [(ngModel)]="question" >
+    <button (click)="submitQuestion()">Submit question</button>
+</div>

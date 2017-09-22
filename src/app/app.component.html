@@ -8,14 +8,12 @@ the question is: {{questionInfo | json}}
   <h1>
     Welcome to {{title}}!
   </h1>
-  <h3>Current Score: {{score}}</h3>
-  <h3 *ngIf="flash">{{flash}}</h3>
+  <h3>Current Score: {{submitQuestion.score}}</h3>
+  <h3 *ngIf="submitQuestion.flash">{{submitQuestion.flash}}</h3>
 </div>
 
 <div class="questionDetails">
   <h3>Here's your answer: {{ questionInfo?.question }}</h3>
   <p><strong>Category:</strong> {{ questionInfo?.category.title }}</p>
-  <p><strong>Point Value:</strong> {{ questionInfo?.value }} </p>
-  <input type="text" [(ngModel)]="question" >
-  <button (click)="submitQuestion(question)">Submit question</button>
-</div>
+  <app-submit-question [questionInfo]="questionInfo" #submitQuestion (submitQuestionEvent)="getDataFromService($event)"></app-submit-question> 
+  </div>
